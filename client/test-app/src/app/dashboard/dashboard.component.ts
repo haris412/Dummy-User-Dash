@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
         if (usrs != null && usrs?.length > 0) {
             this.users = usrs;
             this.users = this.users?.sort((a, b) => (a?.age > b?.age ? -1 : 1));
-            this.users.map(x => x.state = this.states?.find(f => f.abbreviation == x.state)?.name ?? '');
+            this.users.map(x => x.state = this.states?.find(f => f.abbreviation.toLowerCase() == x.state.toLowerCase())?.name ?? '');
             this.backUpUsers = JSON.parse(JSON.stringify(this.users));
         }
     }
@@ -64,10 +64,12 @@ export class DashboardComponent implements OnInit {
           data: {},
         });
         dialogRef.afterClosed().subscribe(result => {
+            if(result?.data){
             this.newUser = result?.data;
             this.users.splice(0, 0, this.newUser);
             this.backUpUsers = JSON.parse(JSON.stringify(this.users));
             this.toasterService.success("User added successfully");
+            }
           });
       }
 }
