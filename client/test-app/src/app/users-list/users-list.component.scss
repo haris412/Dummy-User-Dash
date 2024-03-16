@@ -1,0 +1,45 @@
+.users-list-parent {
+  font-size: 16px;
+  border: 1px solid lightgray;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.users-list-header {
+  padding-inline-end: 10px;
+  font-weight: bold;
+  text-align: center;
+  background-color: lightgray;
+}
+.user-data {
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      width: auto;
+      padding: 0.25rem;
+      border-radius: 0.25rem;
+    }
+  }
+}
+
+.users-list-header,
+.user-data {
+  display: grid;
+  grid-template-columns: 100px repeat(4,1fr);
+}
+
+.user-data-parent {
+  height: calc(100vh - 215px);
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(25, 118, 210);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}

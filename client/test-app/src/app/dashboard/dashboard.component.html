@@ -1,0 +1,11 @@
+
+<div class="parent">
+    <div class="d-flex align-items-center justify-content-between my-2">
+        <p class="fs-1">Users</p>
+        <div class="d-flex flex-column flex-md-row gap-2">
+            <button type="button" class="btn" [ngClass]="{'btn-secondary': !isFilterApplied, 'btn-success': isFilterApplied}" (click)="ApplyFilter()">{{'Filter 30+' + filter}}</button>
+            <button type="button" class="btn btn-primary" (click)="openDialog()">Add User</button>
+        </div>
+    </div>
+    <app-users-list [users]="users"></app-users-list>
+</div>

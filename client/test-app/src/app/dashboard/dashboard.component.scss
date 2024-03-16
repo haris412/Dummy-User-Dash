@@ -1,0 +1,8 @@
+.parent {
+  width: 50%;
+  margin-inline: auto;
+  @media screen and (max-width:920px) {
+    width: 100%;
+    padding-inline: 0.75rem;
+  }
+}
